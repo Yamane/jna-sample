@@ -1,0 +1,30 @@
+plugins {
+  id 'java'
+}
+
+group = 'yamane'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 17
+targetCompatibility = 17
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'net.java.dev.jna:jna:5.+'
+	implementation 'net.java.dev.jna:jna-platform:5.+'
+    testImplementation("org.junit.jupiter:junit-jupiter:5.+")
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+tasks.named('javadoc') {
+	options.encoding = 'UTF-8'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
